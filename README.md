@@ -6,6 +6,7 @@ This is a Docker skeleton for getting any PHP project up and running and running
 
  - ```git clone https://github.com/rendler-denis/docker-project-skeleton.git .```
  - update ```docker-compose.override.yml``` as needed by adding or updating existing services
+ - add any SQL files that might be needed for first time database creation under ```.docker/{dev|prod}/db/scripts/```
  - run ```docker-compose up -d```
 
 ## Services defined
