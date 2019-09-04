@@ -5,4 +5,4 @@ services:
     build:
       target: development
     volumes:
-      - ./.project/dev/php/conf.d/xdebug.ini:/usr/local/etc/php/conf.d/docker-php-ext-xxdebug.ini
+      - ./.docker/dev/php/conf.d/xdebug.ini:/usr/local/etc/php/conf.d/docker-php-ext-xxdebug.ini
