@@ -6,3 +6,11 @@ services:
       target: development
     volumes:
       - ./.docker/dev/php/conf.d/xdebug.ini:/usr/local/etc/php/conf.d/docker-php-ext-xxdebug.ini
+  db:
+    volumes:
+      - .docker/dev/db/scripts:/docker-entrypoint-initdb.d
+
+  nginx:
+    image: nginx:latest
+    volumes:
+      - ./.docker/dev/nginx/etc/conf.d/default.conf:/etc/nginx/conf.d/default.conf

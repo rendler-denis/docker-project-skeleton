@@ -20,6 +20,7 @@ services:
     image: postgres:latest
     volumes:
       - db_data:/var/data
+      - .docker/prod/db/scripts:/docker-entrypoint-initdb.d
     networks:
       - project
     environment:
@@ -37,6 +38,7 @@ services:
       - ./.docker/prod/nginx/etc/conf.d/default.conf:/etc/nginx/conf.d/default.conf
     ports:
       - "80:80"
+      - "443:443"
     networks:
       - project
 
