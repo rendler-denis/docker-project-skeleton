@@ -1,0 +1,47 @@
+version: '3.7'
+
+services:
+  php-fpm:
+    build:
+      context: ./
+      target: prod
+      dockerfile: .project/docker/php/build.docker
+      args:
+        VERSION: 7.3-fpm
+    image: project:7.3-fpm
+    cap_drop:
+      - ALL
+    volumes:
+      - ./:/project
+    networks:
+      - project
+
+  db:
+    image: postgres:latest
+    volumes:
+      - db_data:/var/data
+    networks:
+      - project
+    environment:
+      POSTGRES_USER: project
+      POSTGRES_PASSWORD: project
+      POSTGRES_DB: project
+      PGDATA: /var/data
+    ports:
+      - "5432:5432"
+
+  nginx:
+    image: nginx:latest
+    volumes:
+      - ./:/project
+      - ./.project/prod/nginx/etc/conf.d/default.conf:/etc/nginx/conf.d/default.conf
+    ports:
+      - "80:80"
+    networks:
+      - project
+
+volumes:
+  db_data: {}
+
+networks:
+  project: {}

@@ -1,0 +1,8 @@
+version: '3.7'
+
+services:
+  php-fpm:
+    build:
+      target: development
+    volumes:
+      - ./.project/dev/php/conf.d/xdebug.ini:/usr/local/etc/php/conf.d/docker-php-ext-xxdebug.ini
