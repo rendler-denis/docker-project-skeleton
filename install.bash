@@ -9,19 +9,26 @@ function download() {
   LATEST_VERSION=$(echo $LATEST_RELEASE | sed -e 's/.*"tag_name":"\([^"]*\)".*/\1/')
   TARBALL_URL="$ARTIFACTS_URL/$LATEST_VERSION"
 
-  echo "Downloading tag: $LATEST_VERSION \n"
+  echo -e "Downloading tag: $LATEST_VERSION \n"
   curl -L $TARBALL_URL -o $TMPFILE
 }
 
 function unpack() {
-  echo "Unpacking to local folder... \n"
-  tar -xvf $TMPFILE --strip 1
+  echo -e "Unpacking to local folder... \n"
+  tar -xf $TMPFILE --strip 1
+}
+
+function prepDotEnv() {
+  echo -e "Preparing env file... \n"
+  cp .docker.env.dist .docker.env
 }
 
 function cleanup() {
+  echo -e "Cleaning up... \n"
   rm -rf $TMPFILE
 }
 
 download
 unpack
+prepDotEnv
 cleanup
