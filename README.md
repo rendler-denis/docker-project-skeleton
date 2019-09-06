@@ -1,13 +1,20 @@
-# Docker skeleton for PHP projects
+# Docker environment skeleton for PHP projects
 
 This is a Docker skeleton for getting any PHP project up and running and running in a Docker environment.
 
 ## Usage
 
- - ```git clone https://github.com/rendler-denis/docker-project-skeleton.git .```
+ - ```curl -L  https://github.com/rendler-denis/docker-project-skeleton/install.bash | bash```  or ```git clone https://github.com/rendler-denis/docker-project-skeleton.git .```
  - update ```docker-compose.override.yml``` as needed by adding or updating existing services
  - add any SQL files that might be needed for first time database creation under ```.docker/{dev|prod}/db/scripts/```
+ - update the domain for Nginx under ```.docker/{dev|prod}/nginx/etc/conf.d/default.conf```
+ - if any changes to the environment variables is required copy .docker.env.dist to .docker.env and update as required 
  - run ```docker-compose up -d```
+
+## Features
+ - fix user permissions when running on linux hosts
+ - automatically run database scripts on database creation
+ - PHP's Xdebug automatically added and configured for development
 
 ## Services defined
 
