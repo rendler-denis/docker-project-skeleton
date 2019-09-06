@@ -4,7 +4,7 @@ This is a Docker skeleton for getting any PHP project up and running and running
 
 ## Usage
 
- - ```curl -L  https://github.com/rendler-denis/docker-project-skeleton/install.bash | bash```  or ```git clone https://github.com/rendler-denis/docker-project-skeleton.git .```
+ - ```bash <(curl -Ss https://raw.githubusercontent.com/rendler-denis/docker-project-skeleton/master/install.bash)```  or ```git clone https://github.com/rendler-denis/docker-project-skeleton.git .```
  - update ```docker-compose.override.yml``` as needed by adding or updating existing services
  - add any SQL files that might be needed for first time database creation under ```.docker/{dev|prod}/db/scripts/```
  - update the domain for Nginx under ```.docker/{dev|prod}/nginx/etc/conf.d/default.conf```

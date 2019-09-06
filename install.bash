@@ -18,5 +18,10 @@ function unpack() {
   tar -xvf $TMPFILE --strip 1
 }
 
+function cleanup() {
+  rm -rf $TMPFILE
+}
+
 download
 unpack
+cleanup
