@@ -21,6 +21,7 @@ function unpack() {
 function prepDotEnv() {
   echo -e "Preparing env file... \n"
   cp .docker.env.dist .docker.env
+  echo "XDEBUG_CONFIG=remote_host=$(ip addr show docker0 | grep "inet\b" | awk '{print $2}' | cut -d/ -f1)" >> .docker.env
 }
 
 function cleanup() {
