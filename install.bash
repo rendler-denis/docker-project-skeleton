@@ -15,7 +15,7 @@ function download() {
 
 function unpack() {
   echo -e "Unpacking to local folder... \n"
-  tar -xf $TMPFILE --strip 1
+  tar -xf $TMPFILE --strip 1 --exclude=.gitignore
 }
 
 function prepDotEnv() {
